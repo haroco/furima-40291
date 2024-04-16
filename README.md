@@ -27,7 +27,7 @@
 | category      | integer    | null: false                    |
 | condition     | integer    | null: false                    |
 | shipping_fee  | integer    | null: false                    |
-| ship_from     | integer    | null: false                    |
+| prefectures   | integer    | null: false                    |
 | delivery_time | integer    | null: false                    |
 | price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
