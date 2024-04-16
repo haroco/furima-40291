@@ -29,7 +29,7 @@
 | shipping_fee  | integer    | null: false                    |
 | ship_from     | integer    | null: false                    |
 | delivery_time | integer    | null: false                    |
-| price         | integer    | null; false                    |
+| price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
 
 
