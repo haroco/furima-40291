@@ -8,10 +8,13 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :delivery_time
 
-  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :condition_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :shipping_fee_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :delivery_time_id, numericality: { other_than: 1 , message: "can't be blank"} 
-
+  validates :item_name, presence: true
+  validates :item_details, presence:true
+  validates :category_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
+  validates :condition_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
+  validates :shipping_fee_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
+  validates :prefecture_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
+  validates :delivery_time_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"} 
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  validates :user, presence: true
 end
