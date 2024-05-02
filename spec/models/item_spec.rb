@@ -61,6 +61,26 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it 'condition_idが1だと保存できない' do
+        @item.condition_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
+      end
+      it 'shipping_fee_idが1だと保存できない' do
+        @item.shipping_fee_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
+      end
+      it 'prefecture_idが1だと保存できない' do
+        @item.prefecture_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      end
+      it 'delivery_time_idが1だと保存できない' do
+        @item.delivery_time_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery time can't be blank")
+      end
       it 'priceが数値以外だと保存できない' do
         @item.price = 'abc'
         @item.valid?
