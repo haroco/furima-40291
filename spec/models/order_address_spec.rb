@@ -53,6 +53,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Tel number is too short')
       end
+      it 'tel_numberが12桁以上だと保存できないこと' do
+        @order_address.tel_number = '123456789012'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Tel number is too long')
+      end
       it 'tel_numberが数字以外の場合保存できないこと' do
         @order_address.tel_number = 'abcdefghij'
         @order_address.valid?
